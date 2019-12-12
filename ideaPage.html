@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> Science Outreach </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+	function sendIdea(){
+	var formdata = new FormData();
+	var name = document.getElementById("nameInfo").value;
+	var email = document.getElementById("emailInfo").value;
+	var idea = document.getElementById("ideaInfo").value;
+	var fileSelect = document.getElementById('ideaFileInfo');
+	var files = fileSelect.files;
+	var file = files[0];
+	console.log(name);
+	console.log(email);
+	console.log(idea);
+	formdata.append('name',name);
+	formdata.append('email',email);
+	formdata.append('idea',idea);
+	if(file!= null){formdata.append('file', file, file.name);}
+	/*for (var i = 0; i < files.length; i++) {
+			var file = files[i];
+ 
+   // Check the file type.
+			if (!file.type.match('image.*')) {
+				continue;
+			}
+ 
+   // Add the file to the request.
+			formdata.append('files[]', file, file.name);
+		}
+		*/
+		 var xmlhttp;
+       if(window.XMLHttpRequest)
+       {
+           xmlhttp = new XMLHttpRequest;
+       }
+       else
+       {
+           xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+       }
+       xmlhttp.onreadystatechange = function()
+       {
+          if(xmlhttp.readyState == 4 && xmlhttp.status == 200)
+          {
+		  
+          }
+       }
+       xmlhttp.open("POST", "sendIdea2.php");
+	   xmlhttp.send(formdata);
+	}
+	</script>
+	
+	<style>
+#ideaContainer{
+	margin-left: 15px;
+}
+.inputLabel {
+  display: inline-block;
+  width: 60px;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+<div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand titleText">Science Outreach</a>
+    </div>
+	 <div class="collapse navbar-collapse" id="myNavbar">
+	<ul class="nav navbar-nav navbar-right">
+		<li class="tabText"><a href="index.php">Home</a></li>
+		<li class=" tabText"><a href="experiments.php">Experiments</a></li>
+		<li class=" tabText"><a href="signup.php">Sign Up</a></li>
+		<li class="active tabText"><a href="ideaPage.html">Ideas</a></li>
+		<li class=" tabText"><a href="admin.php">Admin</a></li>
+	</ul>
+	</div>
+	</div>
+</nav>
+
+<div class ="container-fluid" id="ideaContainer">
+<h1>Send Your Project Ideas</h1>
+<!--<form id="ideaForm">-->
+<label class = "inputLabel">Name:</label>
+<input type="text" name="name" id="nameInfo">
+<br><br>
+<label class = "inputLabel">E-mail:</label>
+<input type="text" name="email" id="emailInfo">
+<br><br>
+<label>Description of Idea</label>
+<br>
+<textarea class="form-control" name="idea" id="ideaInfo" rows="10" cols="100"></textarea>
+<br><br>
+<label>Add Image</label>
+ <input type="file" name="file[]" id="ideaFileInfo" multiple>
+<br><br>
+<button onclick="sendIdea();">Send Idea</button>
+<!--</form>-->
+</div>
+</body>
+</html>
