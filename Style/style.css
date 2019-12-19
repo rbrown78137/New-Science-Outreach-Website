@@ -1,0 +1,38 @@
+.navbar{
+	background-color: #008081; /*#616161;*/
+	padding-right: 10px;
+	#862d86
+}
+.navbar .navbar-brand{
+	color:gold;
+	/*#44e866;*/
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: gold;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color:gold;
+    background-color: purple;
+	/*#03770b;*/
+}
+.navbar-default .navbar-nav>li>a{
+	color: gold;
+		/*#44e866;*/
+}
+.navbar-default .navbar-nav>li>a:hover,.navbar-default .navbar-nav>li>a:focus{
+	color:white;
+}
+.titleText{
+	font-family:Rockwell;
+	font-size: 30px;
+	font-weight:bold;
+
+}
+.tabText{
+	font-family:Rockwell;
+	font-size: 15px;
+	font-weight:bold;
+
+}
